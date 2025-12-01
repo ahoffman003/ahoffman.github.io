@@ -123,36 +123,40 @@
       margin-top: 1.8rem;
     }
 
-    nav a {
-      margin: 0 0.9rem;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      opacity: 0.9;
-      position: relative;
-      padding-bottom: 0.2rem;
-    }
+nav a {
+  margin: 0 0.9rem;
+  font-size: 0.92rem;
+  text-transform: uppercase;
+  letter-spacing: 0.17em;
+  opacity: 1;
+  color: #f1f5f9;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
 
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background: #22c55e;
-      border-radius: 999px;
-      transform: translateX(-50%);
-      transition: width 0.18s ease-out;
-    }
+/* Hover + underline indicator */
+nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
 
-    nav a:hover {
-      opacity: 1;
-    }
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: #22c55e;
+  border-radius: 999px;
+  transform: translateX(-50%);
+  transition: width 0.18s ease-out;
+}
 
-    nav a:hover::after {
-      width: 60%;
-    }
+nav a:hover::after {
+  width: 70%;
+}
 
     main {
       max-width: 1060px;
@@ -192,14 +196,6 @@
       text-transform: uppercase;
       letter-spacing: 0.18em;
       color: var(--accent-strong);
-    }
-
-    .section-kicker {
-      font-size: 0.78rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #6b7280;
-      margin-bottom: 0.25rem;
     }
 
     .section-underline {
@@ -480,7 +476,6 @@
     <!-- ABOUT -->
     <section id="about" class="about">
       <section-inner>
-        <div class="section-kicker">Introduction</div>
         <h2>About</h2>
         <div class="section-underline"></div>
 
@@ -502,7 +497,6 @@
     <!-- SKILLS -->
     <section id="skills">
       <section-inner>
-        <div class="section-kicker">Core Capabilities</div>
         <h2>Skills &amp; Tools</h2>
         <div class="section-underline"></div>
 
@@ -539,7 +533,6 @@
     <!-- PROJECTS -->
     <section id="projects">
       <section-inner>
-        <div class="section-kicker">Selected Work</div>
         <h2>Projects</h2>
         <div class="section-underline"></div>
 
@@ -594,7 +587,6 @@
     <!-- RESUME -->
     <section id="resume" class="resume">
       <section-inner>
-        <div class="section-kicker">Experience Snapshot</div>
         <h2>Resume</h2>
         <div class="section-underline"></div>
 
@@ -608,7 +600,6 @@
     <!-- CONTACT -->
     <section id="contact" class="contact">
       <section-inner>
-        <div class="section-kicker">Let’s Connect</div>
         <h2>Contact</h2>
         <div class="section-underline"></div>
 
