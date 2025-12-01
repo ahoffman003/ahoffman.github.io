@@ -16,10 +16,8 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: url("TopoBackground.jpg") repeat;
-      background-color: #f5f5f5; /* fallback background color */
-      background-size: cover; /* or “auto” / “contain” depending on the effect */
-      color: #222; /* maintain text readability */
+      background: #f3f4f6 url("Layout.jpg") center center fixed no-repeat;
+      background-size: cover;
     }
 
     a {
@@ -115,7 +113,7 @@
       white-space: nowrap;
     }
 
-    /* Projects */
+    /* PROJECT CARDS */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -124,60 +122,20 @@
     }
 
     .project-card {
-      perspective: 1000px;
-      height: 260px; /* fixes overlap by giving each card a real height */
-    }
-
-    @media (max-width: 600px) {
-      .project-card {
-        height: 280px;
-      }
-    }
-
-    .card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      border-radius: 12px;
-      border: 1px solid #e5e7eb;
       background: #f9fafb;
-      transition: transform 0.5s ease;
-      transform-style: preserve-3d;
-      overflow: hidden;
-    }
-
-    .project-card:hover .card-inner {
-      transform: rotateY(180deg);
-    }
-
-    .card-face {
-      position: absolute;
-      inset: 0;
-      padding: 1rem 1.1rem 1.2rem;
-      backface-visibility: hidden;
+      border: 1px solid #e5e7eb;
       border-radius: 12px;
+      padding: 1.25rem 1.25rem 1.5rem;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
       display: flex;
       flex-direction: column;
-    }
-
-    .card-front {
-      background: #f9fafb;
-    }
-
-    .card-back {
-      background: #1e293b;
-      color: #f9fafb;
-      transform: rotateY(180deg);
+      height: 100%;
     }
 
     .project-card h3 {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       margin-bottom: 0.4rem;
       color: #111827;
-    }
-
-    .card-back h3 {
-      color: #e5e7eb;
     }
 
     .project-meta {
@@ -185,17 +143,14 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: #6b7280;
-      margin-bottom: 0.4rem;
-    }
-
-    .card-back .project-meta {
-      color: #9ca3af;
+      margin-bottom: 0.6rem;
     }
 
     .project-card p {
       font-size: 0.9rem;
       margin-bottom: 0.75rem;
-      flex: 1;
+      line-height: 1.4;
+      flex-grow: 1;
     }
 
     .project-links {
@@ -205,17 +160,16 @@
     .project-links a {
       font-size: 0.88rem;
       margin-right: 0.75rem;
+      padding: 0.3rem 0.65rem;
+      background: #e5e7eb;
+      border-radius: 6px;
     }
 
-    .card-back .project-links a {
-      color: #bfdbfe;
+    .project-links a:hover {
+      background: #cbd5e1;
     }
 
-    .card-back .project-links a:hover {
-      text-decoration: underline;
-    }
-
-    /* Resume & Contact */
+    /* Resume */
     .resume a {
       display: inline-block;
       margin-top: 0.5rem;
@@ -231,9 +185,20 @@
       text-decoration: none;
     }
 
+    /* Contact + Icon */
     .contact p {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.7rem;
       font-size: 0.96rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .linkedin-icon {
+      width: 20px;
+      height: 20px;
+      fill: #0A66C2;
+      vertical-align: middle;
     }
 
     footer {
@@ -243,23 +208,6 @@
       padding: 1.5rem 1rem 2rem;
       background: rgba(15, 23, 42, 0.9);
       box-shadow: 0 -4px 12px rgba(15, 23, 42, 0.4);
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.7rem;
-      }
-      header p.tagline {
-        font-size: 0.9rem;
-      }
-      nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      nav a {
-        margin: 0.25rem 0.5rem;
-      }
     }
   </style>
 </head>
@@ -289,9 +237,8 @@
         and make decisions about the landscapes around them.
       </p>
       <p>
-        I currently work as a GIS Analyst at Apex Engineering Group supporting municipal infrastructure projects. My responsibilies include mapping water and sewer systems, 
-        enhancing field work with Survey123, building Experience Builder tools, and helping cities manage their assets more effectively. 
-        I enjoy the mix of technical problem-solving, teamwork, and creating maps that actually get used in daily operations.
+        I currently work as a GIS Analyst at Apex Engineering Group supporting municipal infrastructure projects. My work includes water and sewer mapping, 
+        Survey123 design, Experience Builder tools, and asset management workflows that help cities use spatial data more effectively.
       </p>
     </section>
 
@@ -332,101 +279,69 @@
     <section id="projects">
       <h2>Selected Projects</h2>
       <p style="font-size:0.92rem; margin-bottom:0.75rem;">
-        Hover over each card to see more details, or click through to view the live web maps and code.
+        Click through to view the live web maps and GitHub repositories.
       </p>
 
       <div class="projects-grid">
+
         <!-- Sweet Sorghum -->
         <article class="project-card">
-          <div class="card-inner">
-            <!-- FRONT -->
-            <div class="card-face card-front">
-              <h3>Sweet Sorghum Suitability Web App</h3>
-              <div class="project-meta">Research • 2025</div>
-              <p>
-                Interactive web map exploring where sweet sorghum can thrive using climate, soils, and land suitability data.
-              </p>
-              <div class="project-links">
-                <a href="https://umn.maps.arcgis.com/apps/mapviewer/index.html?webmap=3559938ad0e34adeb9d9551022e6c84f" target="_blank">
-                  View App
-                </a>
-                <a href="https://github.com/ahoffman003/Sweet-Sorghum-Analysis.git" target="_blank">
-                  GitHub
-                </a>
-              </div>
-            </div>
-
-            <!-- BACK -->
-            <div class="card-face card-back">
-              <h3>Sweet Sorghum Suitability Web App</h3>
-              <div class="project-meta">Spatial Modeling • Web GIS</div>
-              <p>
-                Built a suitability model integrating Daymet climate data, soil characteristics, and land cover, then published
-                an ArcGIS Online web app to support exploratory analysis of potential bioenergy crop locations.
-              </p>
-              <div class="project-links">
-                <a href="https://umn.maps.arcgis.com/apps/mapviewer/index.html?webmap=3559938ad0e34adeb9d9551022e6c84f" target="_blank">
-                  Open Web App
-                </a>
-                <a href="https://github.com/ahoffman003/Sweet-Sorghum-Analysis.git" target="_blank">
-                  View Code on GitHub
-                </a>
-              </div>
-            </div>
+          <h3>Sweet Sorghum Suitability Web App</h3>
+          <div class="project-meta">Research • 2025</div>
+          <p>
+            This project identifies high-potential regions for sweet sorghum production using Daymet climate data, soil characteristics,
+            and land cover. I built a spatial suitability model, transformed the outputs into interactive layers, and designed a web app 
+            that allows users to explore climate-driven suitability patterns across Minnesota and the Midwest.
+          </p>
+          <div class="project-links">
+            <a href="https://umn.maps.arcgis.com/apps/mapviewer/index.html?webmap=3559938ad0e34adeb9d9551022e6c84f" target="_blank">View App</a>
+            <a href="https://github.com/ahoffman003/Sweet-Sorghum-Analysis.git" target="_blank">GitHub</a>
           </div>
         </article>
 
         <!-- NCT Trail Project -->
         <article class="project-card">
-          <div class="card-inner">
-            <!-- FRONT -->
-            <div class="card-face card-front">
-              <h3>North Country Trail Planning Map</h3>
-              <div class="project-meta">Client Project • 2025</div>
-              <p>
-                Interactive planning map supporting corridor analysis, data review, and collaboration with the North Country Trail Association.
-              </p>
-              <div class="project-links">
-                <a href="https://umn.maps.arcgis.com/apps/mapviewer/index.html?webmap=32dca35e3a074c2a823a45491df8cbeb" target="_blank">
-                  View Map
-                </a>
-              </div>
-            </div>
-
-            <!-- BACK -->
-            <div class="card-face card-back">
-              <h3>North Country Trail Planning Map</h3>
-              <div class="project-meta">Environmental GIS • Collaboration</div>
-              <p>
-                Helped design a web-based map to visualize trail alignments, land ownership, and environmental constraints to
-                support stakeholder conversations, data collection planning, and iterative route refinement.
-              </p>
-              <div class="project-links">
-                <a href="https://umn.maps.arcgis.com/apps/mapviewer/index.html?webmap=32dca35e3a074c2a823a45491df8cbeb" target="_blank">
-                  Open Planning Map
-                </a>
-              </div>
-            </div>
+          <h3>North Country Trail Planning Map</h3>
+          <div class="project-meta">Client Project • 2025</div>
+          <p>
+            Developed an interactive planning map for the North Country Trail Association to evaluate trail alignment options, land ownership,
+            easement needs, and environmental constraints. This tool supports route refinement, internal coordination, and stakeholder 
+            discussions by consolidating authoritative data into a clear, easy-to-use web interface.
+          </p>
+          <div class="project-links">
+            <a href="https://umn.maps.arcgis.com/apps/mapviewer/index.html?webmap=32dca35e3a074c2a823a45491df8cbeb" target="_blank">View Map</a>
           </div>
         </article>
+
       </div>
     </section>
 
     <!-- RESUME -->
     <section id="resume" class="resume">
       <h2>Resume</h2>
-      <p>
-        Download my current resume for more detail on my experience, education, and skills.
-      </p>
+      <p>Download my current resume for more detail on my experience, education, and skills.</p>
       <a href="Hoffman_Resume2025.pdf" target="_blank">Download Resume (PDF)</a>
     </section>
 
     <!-- CONTACT -->
     <section id="contact" class="contact">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:ajd.hoffman@gmail.com">ajd.hoffman@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/amanda-hoffman-7b1b8215b/" target="_blank">View my LinkedIn profile</a></p>
+
+      <p>
+        Email:
+        <a href="mailto:ajd.hoffman@gmail.com">ajd.hoffman@gmail.com</a>
+      </p>
+
+      <p>
+        <svg class="linkedin-icon" viewBox="0 0 24 24">
+          <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.54 8.98h3.93V24H.54zM8.48 8.98h3.77v2.05h.05c.53-1 1.83-2.05 3.76-2.05 4.02 0 4.76 2.65 4.76 6.1V24h-3.93v-7.62c0-1.82-.03-4.16-2.53-4.16-2.54 0-2.93 1.98-2.93 4.03V24H8.48z"/>
+        </svg>
+        <a href="https://www.linkedin.com/in/amanda-hoffman-7b1b8215b/" target="_blank">
+          LinkedIn Profile
+        </a>
+      </p>
     </section>
+
   </main>
 
   <footer>
@@ -434,8 +349,9 @@
   </footer>
 
   <script>
-    // Auto-update year in footer
+    // Auto-update year
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
